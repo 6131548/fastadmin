@@ -11,7 +11,7 @@ protected $dataLimit = false;
  */
 protected $dataLimitField = 'admin_id';
 
-//语言设置 lang/zh-ch/控制器
+//语言设置 app/admin/lang/zh-ch/控制器
 表格控件 public/assets/js/控制器
 bootstarp Table
 搜索 column option
@@ -36,4 +36,10 @@ formatter:function(value,row,index){
                                 var i = Math.floor(Math.log(size) / Math.log(1024));
                                 return (size / Math.pow(1024, i)).toFixed(i < 2 ? 0 : 2) * 1 + ' ' + ['B', 'KB', 'MB', 'GB', 'TB'][i];
                             }
-                        },                       
+                        },       
+  ## 语言转换     
+   {field: 'imagewidth', title: __('Imagewidth'),formatter:function(value,row,index){
+                            //return "<a href=\' "+row.imagewidth+" \' >"+"下载"+"</a>";
+                            return "<a src=\' "+row.imagewidth+" \' >"+__('View')+"</a>";
+                        },
+                        
