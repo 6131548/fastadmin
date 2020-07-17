@@ -16,9 +16,24 @@ protected $dataLimitField = 'admin_id';
 bootstarp Table
 搜索 column option
 //两种样式表达方式
+!important优先级
  {field: 'id', title: __('Id'),
-  cellStyle:function(){return {css:{"width":"200px","color":"red","align":"left","overflow":"hidden",'text-overflow':'ellipsis'}}},
+  cellStyle:function(){return {css:{"width":"200px","color":"red","align":"left !important","overflow":"hidden",'text-overflow':'ellipsis'}}},
  },
 {field: 'url', title: __('Url'),
 width:"300",align:"right",
 formatter: Controller.api.formatter.url},
+formatter链接
+formatter:function(value,row,index){
+                            console.log(row.imagewidth)
+                          // return row.imagewidth+1;
+                            return "<a href=\' "+row.Imagewidth+" \' >"+"下载"+"</a>";
+                        }, 
+  {field: 'storage', title: __('Storage'), formatter: Table.api.formatter.search},
+                        {
+                            field: 'filesize', title: __('Filesize'), operate: 'BETWEEN', sortable: true, formatter: function (value, row, index) {
+                                var size = parseFloat(value);
+                                var i = Math.floor(Math.log(size) / Math.log(1024));
+                                return (size / Math.pow(1024, i)).toFixed(i < 2 ? 0 : 2) * 1 + ' ' + ['B', 'KB', 'MB', 'GB', 'TB'][i];
+                            }
+                        },                       
