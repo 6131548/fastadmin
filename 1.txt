@@ -13,3 +13,12 @@ protected $dataLimitField = 'admin_id';
 
 //语言设置 lang/zh-ch/控制器
 表格控件 public/assets/js/控制器
+bootstarp Table
+搜索 column option
+//两种样式表达方式
+ {field: 'id', title: __('Id'),
+  cellStyle:function(){return {css:{"width":"200px","color":"red","align":"left","overflow":"hidden",'text-overflow':'ellipsis'}}},
+ },
+{field: 'url', title: __('Url'),
+width:"300",align:"right",
+formatter: Controller.api.formatter.url},
