@@ -42,6 +42,7 @@ formatter:function(value,row,index){
                             //return "<a href=\' "+row.imagewidth+" \' >"+"下载"+"</a>";
                             return "<a src=\' "+row.imagewidth+" \' >"+__('View')+"</a>";
                         },
+     }                   
    隐藏按钮                     
         {   field: 'operate',
                             title: __('Operate'),
@@ -63,4 +64,6 @@ formatter:function(value,row,index){
                             // table: table,
                             // events: Table.api.events.operate,
                             //formatter: Table.api.formatter.operate
-                        }                
+                        }    
+  添加设置 目录 app/admin/view                      
+                        
