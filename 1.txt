@@ -42,4 +42,25 @@ formatter:function(value,row,index){
                             //return "<a href=\' "+row.imagewidth+" \' >"+"下载"+"</a>";
                             return "<a src=\' "+row.imagewidth+" \' >"+__('View')+"</a>";
                         },
-                        
+   隐藏按钮                     
+        {   field: 'operate',
+                            title: __('Operate'),
+                            table: table,
+                            events: Table.api.events.operate,
+                            formatter:function(value,row,index){
+                                var that = $.extend({}, this);
+                                var table = $(that.table).clone(true);
+                                that.table = table;
+
+                                $(table).data("operate-edit",null);
+                                $(table).data("operate-del",null);
+
+                                return Table.api.formatter.operate.call(that,value,row,index);
+                            }
+                           
+                            // field: 'operate',
+                            // title: __('Operate'),
+                            // table: table,
+                            // events: Table.api.events.operate,
+                            //formatter: Table.api.formatter.operate
+                        }                
