@@ -65,5 +65,38 @@ formatter:function(value,row,index){
                             // events: Table.api.events.operate,
                             //formatter: Table.api.formatter.operate
                         }    
-  添加设置 目录 app/admin/view                      
-                        
+  添加设置 目录 app/admin/view      
+  
+  增加按钮
+    {field: 'operate', title: __('Operate'), table: table,
+                        buttons:[
+                                {
+                                    name:"start",
+                                    text:"",
+                                    classname:"btn btn-xs bth-info btn-ajax btn-restoreit",
+                                    icon:"fa fa-play",
+                                    url:"pim/gen/start",
+                                    confirm:"是否开始？",
+                                    refresh:true,
+                                },
+                                {
+                                    name:"finish",
+                                    text:"",
+                                    classname:"btn btn-xs bth-danger btn-ajax btn-restoreit",
+                                    icon:"fa fa-stop",
+                                    url:"pim/gen/finish",
+                                    confirm:"是否结束？",
+                                    refresh:true,
+                                }
+                            ],
+                         events: Table.api.events.operate, formatter: function(value,row,index){
+                            var that = $.extend({}, this);
+                                var table = $(that.table).clone(true);
+                                that.table = table;
+
+                                $(table).data("operate-edit",null);
+                                $(table).data("operate-del",null);
+
+                                return Table.api.formatter.operate.call(that,value,row,index);
+
+                        }},                     
